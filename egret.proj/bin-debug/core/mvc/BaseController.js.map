@@ -1,0 +1,1 @@
+{"version":3,"file":"BaseController.js","sourceRoot":"","sources":["../../../src/core/mvc/BaseController.ts"],"names":[],"mappings":";;;AAAA;IAEI;IAEA,CAAC;IACM,iCAAQ,GAAf,UAAgB,KAAe;QAC3B,IAAI,CAAC,MAAM,GAAG,KAAK,CAAC;IACxB,CAAC;IACM,iCAAQ,GAAf;QACI,MAAM,CAAC,IAAI,CAAC,MAAM,CAAC;IACvB,CAAC;IACL,qBAAC;AAAD,CAAC,AAXD,IAWC;AAXK,UAAA,cAAc,6BAWnB,CAAA"}

@@ -4,6 +4,7 @@ class ResLoader{
     private _onConfigCompleteTarget:any;
     private _groups:any;
     private _groupIndex:number = 0;
+
     public constructor(){
         this._configs = new Array<any>();
         this._groups = {};
@@ -71,6 +72,14 @@ class ResLoader{
 
     public createGroup(groupName:string , resKeys:string[]):void{
         RES.createGroup(groupName,resKeys,true);
+    }
+
+    public loadResource(resource = [],groups = [],onResourceLoadComplete:Function = null,onResourceLoadProgress:Function = null,onResourceLoadCompleteTarget:any = null):void{
+        let needLoadArr = resource.concat(groups);
+        let tempName = "loadGroup_" + this._groupIndex++;
+        RES.createGroup(tempName,needLoadArr,true);
+        this._groups[tempName] =  [onResourceLoadComplete,onResourceLoadProgress,onResourceLoadCompleteTarget];
+        RES.loadGroup(tempName);
     }
 
 

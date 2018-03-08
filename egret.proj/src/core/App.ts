@@ -2,15 +2,19 @@ class App {
     private static _instance : App;
     private _uiStage: eui.UILayer;
     private _sceneMgr: SceneMgr;
+    private _res:ResLoader;
+    private _timerMgr:TimerMgr;
+    private _easyloading:EasyLoading;
+
     public constructor(){
         if(this._uiStage == null){
             this._uiStage = new eui.UILayer();
             this._uiStage.percentWidth = 100;
             this._uiStage.percentHeight = 100;
             this._uiStage.touchEnabled = false;
-            this.getStage().addChild(this._uiStage);
+            this.Stage.addChild(this._uiStage);
         }
-        this._sceneMgr = new SceneMgr();
+
     }
     public static get Instance(): App{
         if(!this._instance){
@@ -20,30 +24,45 @@ class App {
     }
     public init() : void{
         //初始化操作
+        this._res = new ResLoader();
+        this._timerMgr = new TimerMgr();
+        this._easyloading = new EasyLoading();
+        this._sceneMgr = new SceneMgr();
     }
-    
-    public getUIStage(): eui.UILayer{
+    public get RES():ResLoader{
+        return this._res;
+    }
+    public get SceneMgr():SceneMgr{
+        return this._sceneMgr;
+    }
+    public get TimerMgr():TimerMgr{
+        return this._timerMgr;
+    }
+    public get EasyLoading():EasyLoading{
+        return this._easyloading;
+    }
+    public get UIStage(): eui.UILayer{
         return this._uiStage;
     }
     public setScaleMode(value: string): void{
-        this.getStage().scaleMode = value;
+        this.Stage.scaleMode = value;
     }
     public setFrameRate(value: number): void{
-        this.getStage().frameRate = value;
+        this.Stage.frameRate = value;
     }
     public setMaxTouches(value: number): void{
-        this.getStage().maxTouches = value;
+        this.Stage.maxTouches = value;
     }
     public setTouchChildren(value: boolean): void{
-        this.getStage().touchChildren = value;
+        this.Stage.touchChildren = value;
     }
-    public getHeight(): number{
-        return this.getStage().stageHeight;
+    public get Height(): number{
+        return this.Stage.stageHeight;
     }
-    public getWidth(): number{
-        return this.getStage().stageWidth;
+    public get Width(): number{
+        return this.Stage.stageWidth;
     }
-    public getStage(): egret.Stage{
+    public get Stage(): egret.Stage{
         return egret.MainContext.instance.stage;
     }
     //全屏适配
@@ -57,7 +76,7 @@ class App {
         
     }
     private stageOnResize(): void{
-        this.getStage().removeEventListener(egret.Event.RESIZE,this.stageOnResize,this);
+        this.Stage.removeEventListener(egret.Event.RESIZE,this.stageOnResize,this);
         let designWidth: number = this._designWidth;
         let designHeight: number = this._designHeight;
         let clientWidth:number = window.innerWidth;
@@ -69,11 +88,11 @@ class App {
             designWidth = Math.floor(designWidth * c);
             designHeight = Math.floor(designHeight * c);
         }
-        this.getStage().setContentSize(designWidth,designHeight);
+        this.Stage.setContentSize(designWidth,designHeight);
         if(this._resizeCallback){
             this._resizeCallback();
         }
-        this.getStage().addEventListener(egret.Event.RESIZE,this.stageOnResize,this);
+        this.Stage.addEventListener(egret.Event.RESIZE,this.stageOnResize,this);
     }
 
 }

@@ -8,9 +8,8 @@ var App = (function () {
             this._uiStage.percentWidth = 100;
             this._uiStage.percentHeight = 100;
             this._uiStage.touchEnabled = false;
-            this.getStage().addChild(this._uiStage);
+            this.Stage.addChild(this._uiStage);
         }
-        this._sceneMgr = new SceneMgr();
     }
     Object.defineProperty(App, "Instance", {
         get: function () {
@@ -24,38 +23,86 @@ var App = (function () {
     });
     App.prototype.init = function () {
         //初始化操作
+        this._res = new ResLoader();
+        this._timerMgr = new TimerMgr();
+        this._easyloading = new EasyLoading();
+        this._sceneMgr = new SceneMgr();
     };
-    App.prototype.getUIStage = function () {
-        return this._uiStage;
-    };
+    Object.defineProperty(App.prototype, "RES", {
+        get: function () {
+            return this._res;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "SceneMgr", {
+        get: function () {
+            return this._sceneMgr;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "TimerMgr", {
+        get: function () {
+            return this._timerMgr;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "EasyLoading", {
+        get: function () {
+            return this._easyloading;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "UIStage", {
+        get: function () {
+            return this._uiStage;
+        },
+        enumerable: true,
+        configurable: true
+    });
     App.prototype.setScaleMode = function (value) {
-        this.getStage().scaleMode = value;
+        this.Stage.scaleMode = value;
     };
     App.prototype.setFrameRate = function (value) {
-        this.getStage().frameRate = value;
+        this.Stage.frameRate = value;
     };
     App.prototype.setMaxTouches = function (value) {
-        this.getStage().maxTouches = value;
+        this.Stage.maxTouches = value;
     };
     App.prototype.setTouchChildren = function (value) {
-        this.getStage().touchChildren = value;
+        this.Stage.touchChildren = value;
     };
-    App.prototype.getHeight = function () {
-        return this.getStage().stageHeight;
-    };
-    App.prototype.getWidth = function () {
-        return this.getStage().stageWidth;
-    };
-    App.prototype.getStage = function () {
-        return egret.MainContext.instance.stage;
-    };
+    Object.defineProperty(App.prototype, "Height", {
+        get: function () {
+            return this.Stage.stageHeight;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "Width", {
+        get: function () {
+            return this.Stage.stageWidth;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "Stage", {
+        get: function () {
+            return egret.MainContext.instance.stage;
+        },
+        enumerable: true,
+        configurable: true
+    });
     App.prototype.fullScreenAdaptation = function (designWidth, designHeight, resizeCallback) {
         this._designWidth = designWidth;
         this._designHeight = designHeight;
         this._resizeCallback = resizeCallback;
     };
     App.prototype.stageOnResize = function () {
-        this.getStage().removeEventListener(egret.Event.RESIZE, this.stageOnResize, this);
+        this.Stage.removeEventListener(egret.Event.RESIZE, this.stageOnResize, this);
         var designWidth = this._designWidth;
         var designHeight = this._designHeight;
         var clientWidth = window.innerWidth;
@@ -67,11 +114,11 @@ var App = (function () {
             designWidth = Math.floor(designWidth * c);
             designHeight = Math.floor(designHeight * c);
         }
-        this.getStage().setContentSize(designWidth, designHeight);
+        this.Stage.setContentSize(designWidth, designHeight);
         if (this._resizeCallback) {
             this._resizeCallback();
         }
-        this.getStage().addEventListener(egret.Event.RESIZE, this.stageOnResize, this);
+        this.Stage.addEventListener(egret.Event.RESIZE, this.stageOnResize, this);
     };
     return App;
 }());

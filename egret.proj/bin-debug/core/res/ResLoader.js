@@ -65,6 +65,18 @@ var ResLoader = (function () {
     ResLoader.prototype.createGroup = function (groupName, resKeys) {
         RES.createGroup(groupName, resKeys, true);
     };
+    ResLoader.prototype.loadResource = function (resource, groups, onResourceLoadComplete, onResourceLoadProgress, onResourceLoadCompleteTarget) {
+        if (resource === void 0) { resource = []; }
+        if (groups === void 0) { groups = []; }
+        if (onResourceLoadComplete === void 0) { onResourceLoadComplete = null; }
+        if (onResourceLoadProgress === void 0) { onResourceLoadProgress = null; }
+        if (onResourceLoadCompleteTarget === void 0) { onResourceLoadCompleteTarget = null; }
+        var needLoadArr = resource.concat(groups);
+        var tempName = "loadGroup_" + this._groupIndex++;
+        RES.createGroup(tempName, needLoadArr, true);
+        this._groups[tempName] = [onResourceLoadComplete, onResourceLoadProgress, onResourceLoadCompleteTarget];
+        RES.loadGroup(tempName);
+    };
     return ResLoader;
 }());
 __reflect(ResLoader.prototype, "ResLoader");
