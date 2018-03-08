@@ -55,7 +55,56 @@ var ViewMgr = (function () {
             view.open(param);
         }
         else {
+            App.Instance.EasyLoading.showLoading();
+            view.loadResource(function () {
+                view.setVisible(false);
+                view.addToParent();
+            }.bind(this), function () {
+                view.initCompoments();
+                view.initData();
+                view.open(param);
+                view.setVisible(true);
+                App.Instance.EasyLoading.hideLoading();
+            }.bind(this));
         }
+        this._opens.push(key);
+        return view;
+    };
+    ViewMgr.prototype.close = function (key) {
+        var param = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            param[_i - 1] = arguments[_i];
+        }
+        if (!this.isShow(key)) {
+            return;
+        }
+        var view = this.getView(key);
+        if (view == null) {
+            return;
+        }
+        var viewIndex = this._opens.indexOf(key);
+        if (viewIndex > 0) {
+            this._opens.splice(viewIndex, 1);
+        }
+        view.removeFromParent();
+        view.close(param);
+    };
+    ViewMgr.prototype.closeView = function (view) {
+        var param = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            param[_i - 1] = arguments[_i];
+        }
+        var keys = Object.keys(this._views);
+        for (var i = 0; i < keys.length - 1; i++) {
+            var key = parseInt(keys[i]);
+            if (this._views[key] == view) {
+                this.close(key, param);
+                return;
+            }
+        }
+    };
+    ViewMgr.prototype.isShow = function (key) {
+        return this._opens.indexOf(key) != -1;
     };
     return ViewMgr;
 }());

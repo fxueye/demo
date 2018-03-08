@@ -12,7 +12,7 @@
 	],
 	"game": [
 		"bin-debug/core/base/BaseSprite.js",
-		"bin-debug/Main.js",
+		"bin-debug/core/mgr/TimerMgr.js",
 		"bin-debug/core/App.js",
 		"bin-debug/core/adapter/AssetAdapter.js",
 		"bin-debug/core/adapter/ThemeAdapter.js",
@@ -20,14 +20,15 @@
 		"bin-debug/core/base/BaseScene.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/core/mgr/SceneMgr.js",
-		"bin-debug/core/res/ResLoader.js",
+		"bin-debug/Main.js",
 		"bin-debug/core/mgr/ViewMgr.js",
 		"bin-debug/core/module/loading/EasyLoading.js",
+		"bin-debug/core/module/toast/EasyToast.js",
 		"bin-debug/core/mvc/BaseController.js",
 		"bin-debug/core/mvc/BaseModel.js",
 		"bin-debug/core/mvc/BaseProxy.js",
 		"bin-debug/core/mvc/BaseView.js",
 		"bin-debug/core/platform/Platform.js",
-		"bin-debug/core/mgr/TimerMgr.js"
+		"bin-debug/core/res/ResLoader.js"
 	]
 }
