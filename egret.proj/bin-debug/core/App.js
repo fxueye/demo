@@ -27,9 +27,34 @@ var App = (function () {
         this._timerMgr = new TimerMgr();
         this._easyloading = new EasyLoading();
         this._sceneMgr = new SceneMgr();
+        this._layerMgr = new LayerMgr();
+        this._viewMgr = new ViewMgr();
     };
+    Object.defineProperty(App.prototype, "ViewMgr", {
+        get: function () {
+            if (!this._viewMgr) {
+                this._viewMgr = new ViewMgr();
+            }
+            return this._viewMgr;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "LayerMgr", {
+        get: function () {
+            if (!this._layerMgr) {
+                this._layerMgr = new LayerMgr();
+            }
+            return this._layerMgr;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(App.prototype, "RES", {
         get: function () {
+            if (!this._res) {
+                this._res = new ResLoader();
+            }
             return this._res;
         },
         enumerable: true,
@@ -37,6 +62,9 @@ var App = (function () {
     });
     Object.defineProperty(App.prototype, "SceneMgr", {
         get: function () {
+            if (!this._sceneMgr) {
+                this._sceneMgr = new SceneMgr();
+            }
             return this._sceneMgr;
         },
         enumerable: true,
@@ -44,6 +72,9 @@ var App = (function () {
     });
     Object.defineProperty(App.prototype, "TimerMgr", {
         get: function () {
+            if (!this._timerMgr) {
+                this._timerMgr = new TimerMgr();
+            }
             return this._timerMgr;
         },
         enumerable: true,
@@ -51,6 +82,9 @@ var App = (function () {
     });
     Object.defineProperty(App.prototype, "EasyLoading", {
         get: function () {
+            if (!this._easyloading) {
+                this._easyloading = new EasyLoading();
+            }
             return this._easyloading;
         },
         enumerable: true,
