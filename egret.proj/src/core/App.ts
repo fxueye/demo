@@ -5,7 +5,8 @@ class App {
     private _res:ResLoader;
     private _timerMgr:TimerMgr;
     private _easyloading:EasyLoading;
-
+    private _layerMgr:LayerMgr;
+    private _viewMgr:ViewMgr;
     public constructor(){
         if(this._uiStage == null){
             this._uiStage = new eui.UILayer();
@@ -28,17 +29,43 @@ class App {
         this._timerMgr = new TimerMgr();
         this._easyloading = new EasyLoading();
         this._sceneMgr = new SceneMgr();
+        this._layerMgr = new LayerMgr();
+        this._viewMgr = new ViewMgr();
+    }
+    public get ViewMgr():ViewMgr{
+        if(!this._viewMgr){
+            this._viewMgr = new ViewMgr();
+        }
+        return this._viewMgr;
+    }
+    public get LayerMgr():LayerMgr{
+        if(!this._layerMgr){
+            this._layerMgr = new LayerMgr();
+        }
+        return this._layerMgr;
     }
     public get RES():ResLoader{
+        if(!this._res){
+            this._res = new ResLoader();
+        }
         return this._res;
     }
     public get SceneMgr():SceneMgr{
+        if(!this._sceneMgr){
+            this._sceneMgr = new SceneMgr();
+        }
         return this._sceneMgr;
     }
     public get TimerMgr():TimerMgr{
+        if(!this._timerMgr){
+            this._timerMgr = new TimerMgr();
+        }
         return this._timerMgr;
     }
     public get EasyLoading():EasyLoading{
+        if(!this._easyloading){
+            this._easyloading = new EasyLoading();
+        }
         return this._easyloading;
     }
     public get UIStage(): eui.UILayer{
