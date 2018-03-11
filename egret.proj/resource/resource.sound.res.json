@@ -1,0 +1,15 @@
+{
+	"groups": [
+		{
+			"keys": "bg_mp3",
+			"name": "home"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/sound/bg.mp3",
+			"type": "sound",
+			"name": "bg_mp3"
+		}
+	]
+}

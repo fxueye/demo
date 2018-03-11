@@ -7,6 +7,9 @@ class App {
     private _easyloading:EasyLoading;
     private _layerMgr:LayerMgr;
     private _viewMgr:ViewMgr;
+    private _controlMgr:ControlMgr;
+    private _soundMgr:SoundMgr;
+
     public constructor(){
         if(this._uiStage == null){
             this._uiStage = new eui.UILayer();
@@ -31,6 +34,8 @@ class App {
         this._sceneMgr = new SceneMgr();
         this._layerMgr = new LayerMgr();
         this._viewMgr = new ViewMgr();
+        this._controlMgr = new ControlMgr();
+        this._soundMgr = new SoundMgr();
     }
     public get ViewMgr():ViewMgr{
         if(!this._viewMgr){
@@ -62,11 +67,23 @@ class App {
         }
         return this._timerMgr;
     }
+    public get ControlMgr():ControlMgr{
+        if(!this._controlMgr){
+            this._controlMgr = new ControlMgr();
+        }
+        return this._controlMgr;
+    }
     public get EasyLoading():EasyLoading{
         if(!this._easyloading){
             this._easyloading = new EasyLoading();
         }
         return this._easyloading;
+    }
+    public get SoundMgr():SoundMgr{
+        if(!this._soundMgr){
+            this._soundMgr = new SoundMgr();
+        }
+        return this._soundMgr;
     }
     public get UIStage(): eui.UILayer{
         return this._uiStage;

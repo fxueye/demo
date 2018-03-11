@@ -16,10 +16,20 @@ class ResLoader{
     public addConfig(jsonPath:string ,filePath:string):void{
         this._configs.push([jsonPath,filePath]);
     }
+    public setComplete(onConfigComplete:Function, onConfigCompleteTarget:any):void{
+        this._onConfigComplete = onConfigComplete;
+        this._onConfigCompleteTarget = onConfigCompleteTarget;
+    }
     public loadConfig(onConfigComplete:Function, onConfigCompleteTarget:any):void{
         this._onConfigComplete = onConfigComplete;
         this._onConfigCompleteTarget = onConfigCompleteTarget;
-        
+        this.loadNextConfig();
+    }
+    public async asyncLoadConfig():Promise<any>{
+        while(this._configs.length != 0){
+            let arr:any = this._configs.shift();
+            await RES.loadConfig(arr[0],arr[1]);
+        }
     }
     private loadNextConfig():void{
         if(this._configs.length == 0){
@@ -36,7 +46,9 @@ class ResLoader{
         RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE,this.onConfigCompleteHandle,this);
         this.loadNextConfig();
     }
-
+    public async asyncLoadGroup(groupName:string,reporter?: RES.PromiseTaskReporter):Promise<any>{
+        return RES.loadGroup(groupName,0,reporter);
+    }
     public loadGroup(groupName:string,onResourceLoadComplete:Function,onResourceLoadProgress:Function,onResourceLoadCompleteTarget:any): void{
         this._groups[groupName] = [onResourceLoadComplete,onResourceLoadProgress,onResourceLoadCompleteTarget];
         RES.loadGroup(groupName);

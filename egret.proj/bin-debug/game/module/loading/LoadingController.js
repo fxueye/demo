@@ -11,8 +11,15 @@ r.prototype = e.prototype, t.prototype = new r();
 var LoadingController = (function (_super) {
     __extends(LoadingController, _super);
     function LoadingController() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this._loadingView = new LoadingView(_this, App.Instance.LayerMgr.UIMain);
+        App.Instance.ViewMgr.register(ViewConst.LOADING, _this._loadingView);
+        return _this;
+        // App.Instance.SoundMgr.playBg("bg_mp3",true);
     }
+    LoadingController.prototype.setProgress = function (current, total) {
+        this._loadingView.setProgress(current, total);
+    };
     return LoadingController;
 }(BaseController));
 __reflect(LoadingController.prototype, "LoadingController");

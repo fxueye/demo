@@ -1,5 +1,5 @@
 var ViewConst;
 (function (ViewConst) {
-    ViewConst[ViewConst["Loading"] = 10000] = "Loading";
+    ViewConst[ViewConst["LOADING"] = 10000] = "LOADING";
 })(ViewConst || (ViewConst = {}));
 //# sourceMappingURL=ViewConst.js.map

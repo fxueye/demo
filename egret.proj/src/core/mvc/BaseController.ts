@@ -1,7 +1,6 @@
 class BaseController{
     private _model:BaseModel;
-    public constructor(){
-
+    public constructor(){   
     }
     public setModel(model:BaseModel){
         this._model = model;

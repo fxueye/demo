@@ -51,19 +51,20 @@ class Main extends eui.UILayer {
         egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
         egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
         
-        App.Instance.init();
-
         this.runGame().catch(e => {
             console.log(e);
         })
-    }
 
+    }
     private async runGame() {
         await this.loadResource()
+        App.Instance.init();
+        this.initScene();
+        this.initModule();
         this.createGameScene();
-        await platform.login();
-        const userInfo = await platform.getUserInfo();
-        console.log(userInfo);
+        // await platform.login();
+        // const userInfo = await platform.getUserInfo();
+        // console.log(userInfo);
 
     }
 
@@ -71,9 +72,12 @@ class Main extends eui.UILayer {
         try {
             const loadingView = new LoadingUI();
             this.stage.addChild(loadingView);
-            await RES.loadConfig("resource/default.res.json", "resource/");
+            App.Instance.RES.addConfig("resource/default.res.json", "resource/");
+            App.Instance.RES.addConfig("resource/resource.ui.res.json", "resource/");
+            App.Instance.RES.addConfig("resource/resource.sound.res.json", "resource/");
+            await App.Instance.RES.asyncLoadConfig();
             await this.loadTheme();
-            await RES.loadGroup("preload", 0, loadingView);
+            await App.Instance.RES.asyncLoadGroup("loading",loadingView);
             this.stage.removeChild(loadingView);
         }
         catch (e) {
@@ -92,18 +96,21 @@ class Main extends eui.UILayer {
 
         })
     }
-    /**
-     * 创建场景界面
-     * Create scene interface
-     */
+
     protected createGameScene(): void {
         App.Instance.EasyLoading.showLoading();
-
+        App.Instance.SceneMgr.runScene(SceneConst.LOADING);
     }
-    private initScene():void{
+    protected initScene(): void {
         App.Instance.SceneMgr.register(SceneConst.LOADING,new LoadingScene());
+        App.Instance.SceneMgr.register(SceneConst.UI,new UIScene());
     }
-    
+    protected initModule():void{
+        App.Instance.ControlMgr.register(ControlConst.LOADING,new LoadingController());
+    }
+
+
+
 
 
 

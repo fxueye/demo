@@ -17,7 +17,7 @@ var LoadingScene = (function (_super) {
         _super.prototype.onEnter.call(this);
         //初始化场景层级
         this.addLayer(App.Instance.LayerMgr.UIMain);
-        App.Instance.ViewMgr.open(ViewConst.Loading);
+        App.Instance.ViewMgr.open(ViewConst.LOADING);
     };
     LoadingScene.prototype.onExit = function () {
         _super.prototype.onExit.call(this);

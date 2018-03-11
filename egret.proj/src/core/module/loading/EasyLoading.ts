@@ -16,6 +16,7 @@ class EasyLoading{
         this._uiImageContainer.x = this._content.width / 2;
         this._uiImageContainer.y = this._content.height / 2;
         this._content.addChild(this._uiImageContainer);
+        // let texture:egret.Texture = RES.getRes("loading_png");
         RES.getResByUrl("resource/assets/loading.png",function(texture:egret.Texture):void{
             let img:egret.Bitmap = new egret.Bitmap();
             img.texture = texture;

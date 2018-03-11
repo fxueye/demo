@@ -1,3 +1,3 @@
 enum ViewConst{
-    Loading = 10000,
+    LOADING = 10000,
 }

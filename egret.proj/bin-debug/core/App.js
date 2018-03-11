@@ -29,6 +29,8 @@ var App = (function () {
         this._sceneMgr = new SceneMgr();
         this._layerMgr = new LayerMgr();
         this._viewMgr = new ViewMgr();
+        this._controlMgr = new ControlMgr();
+        this._soundMgr = new SoundMgr();
     };
     Object.defineProperty(App.prototype, "ViewMgr", {
         get: function () {
@@ -80,12 +82,32 @@ var App = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(App.prototype, "ControlMgr", {
+        get: function () {
+            if (!this._controlMgr) {
+                this._controlMgr = new ControlMgr();
+            }
+            return this._controlMgr;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(App.prototype, "EasyLoading", {
         get: function () {
             if (!this._easyloading) {
                 this._easyloading = new EasyLoading();
             }
             return this._easyloading;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(App.prototype, "SoundMgr", {
+        get: function () {
+            if (!this._soundMgr) {
+                this._soundMgr = new SoundMgr();
+            }
+            return this._soundMgr;
         },
         enumerable: true,
         configurable: true

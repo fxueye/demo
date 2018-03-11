@@ -92,27 +92,21 @@ var Main = (function (_super) {
         var assetAdapter = new AssetAdapter();
         egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
         egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
-        App.Instance.init();
         this.runGame().catch(function (e) {
             console.log(e);
         });
     };
     Main.prototype.runGame = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var userInfo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadResource()];
                     case 1:
                         _a.sent();
+                        App.Instance.init();
+                        this.initScene();
+                        this.initModule();
                         this.createGameScene();
-                        return [4 /*yield*/, platform.login()];
-                    case 2:
-                        _a.sent();
-                        return [4 /*yield*/, platform.getUserInfo()];
-                    case 3:
-                        userInfo = _a.sent();
-                        console.log(userInfo);
                         return [2 /*return*/];
                 }
             });
@@ -127,13 +121,16 @@ var Main = (function (_super) {
                         _a.trys.push([0, 4, , 5]);
                         loadingView = new LoadingUI();
                         this.stage.addChild(loadingView);
-                        return [4 /*yield*/, RES.loadConfig("resource/default.res.json", "resource/")];
+                        App.Instance.RES.addConfig("resource/default.res.json", "resource/");
+                        App.Instance.RES.addConfig("resource/resource.ui.res.json", "resource/");
+                        App.Instance.RES.addConfig("resource/resource.sound.res.json", "resource/");
+                        return [4 /*yield*/, App.Instance.RES.asyncLoadConfig()];
                     case 1:
                         _a.sent();
                         return [4 /*yield*/, this.loadTheme()];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
+                        return [4 /*yield*/, App.Instance.RES.asyncLoadGroup("loading", loadingView)];
                     case 3:
                         _a.sent();
                         this.stage.removeChild(loadingView);
@@ -158,15 +155,16 @@ var Main = (function (_super) {
             }, _this);
         });
     };
-    /**
-     * 创建场景界面
-     * Create scene interface
-     */
     Main.prototype.createGameScene = function () {
         App.Instance.EasyLoading.showLoading();
+        App.Instance.SceneMgr.runScene(SceneConst.LOADING);
     };
     Main.prototype.initScene = function () {
         App.Instance.SceneMgr.register(SceneConst.LOADING, new LoadingScene());
+        App.Instance.SceneMgr.register(SceneConst.UI, new UIScene());
+    };
+    Main.prototype.initModule = function () {
+        App.Instance.ControlMgr.register(ControlConst.LOADING, new LoadingController());
     };
     return Main;
 }(eui.UILayer));

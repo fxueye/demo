@@ -12,7 +12,7 @@ var LoadingView = (function (_super) {
     __extends(LoadingView, _super);
     function LoadingView(controller, parent) {
         var _this = _super.call(this, controller, parent) || this;
-        _this.skinName = "resource/skins/LoadingSkin.exml";
+        _this.skinName = "skin.LoadingSkin";
         return _this;
     }
     LoadingView.prototype.setProgress = function (current, total) {

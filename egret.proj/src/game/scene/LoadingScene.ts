@@ -6,7 +6,8 @@ class LoadingScene extends BaseScene{
         super.onEnter();
         //初始化场景层级
         this.addLayer(App.Instance.LayerMgr.UIMain);
-        App.Instance.ViewMgr.open(ViewConst.Loading);
+        App.Instance.ViewMgr.open(ViewConst.LOADING);
+        
     }
     public onExit():void{
         super.onExit();
