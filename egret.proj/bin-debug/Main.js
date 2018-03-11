@@ -100,13 +100,15 @@ var Main = (function (_super) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loadResource()];
+                    case 0: return [4 /*yield*/, this.loadResource()
+                        // App.Instance.init();
+                    ];
                     case 1:
                         _a.sent();
-                        App.Instance.init();
+                        // App.Instance.init();
                         this.initScene();
                         this.initModule();
-                        this.createGameScene();
+                        App.Instance.SceneMgr.runScene(SceneConst.LOADING);
                         return [2 /*return*/];
                 }
             });
@@ -155,13 +157,9 @@ var Main = (function (_super) {
             }, _this);
         });
     };
-    Main.prototype.createGameScene = function () {
-        App.Instance.EasyLoading.showLoading();
-        App.Instance.SceneMgr.runScene(SceneConst.LOADING);
-    };
     Main.prototype.initScene = function () {
         App.Instance.SceneMgr.register(SceneConst.LOADING, new LoadingScene());
-        App.Instance.SceneMgr.register(SceneConst.UI, new UIScene());
+        App.Instance.SceneMgr.register(SceneConst.GAME, new GameScene());
     };
     Main.prototype.initModule = function () {
         App.Instance.ControlMgr.register(ControlConst.LOADING, new LoadingController());

@@ -8,12 +8,12 @@ var __extends = this && this.__extends || function __extends(t, e) {
 for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
-var UIScene = (function (_super) {
-    __extends(UIScene, _super);
-    function UIScene() {
+var GameScene = (function (_super) {
+    __extends(GameScene, _super);
+    function GameScene() {
         return _super.call(this) || this;
     }
-    UIScene.prototype.onEnter = function () {
+    GameScene.prototype.onEnter = function () {
         _super.prototype.onEnter.call(this);
         this.addLayer(App.Instance.LayerMgr.UIMain);
         this.addLayer(App.Instance.LayerMgr.UIPopup);
@@ -25,10 +25,10 @@ var UIScene = (function (_super) {
         rect.percentWidth = 100;
         App.Instance.LayerMgr.UIMain.addChild(rect);
     };
-    UIScene.prototype.onExit = function () {
+    GameScene.prototype.onExit = function () {
         _super.prototype.onExit.call(this);
     };
-    return UIScene;
+    return GameScene;
 }(BaseScene));
-__reflect(UIScene.prototype, "UIScene");
-//# sourceMappingURL=UIScene.js.map
+__reflect(GameScene.prototype, "GameScene");
+//# sourceMappingURL=GameScene.js.map

@@ -21,6 +21,9 @@ var ControlMgr = (function () {
         this._modules[key] = null;
         delete this._modules[key];
     };
+    ControlMgr.prototype.getControl = function (key) {
+        return this._modules[key];
+    };
     ControlMgr.prototype.getModel = function (key) {
         var control = this._modules[key];
         if (control) {

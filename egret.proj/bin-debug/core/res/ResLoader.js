@@ -100,6 +100,10 @@ var ResLoader = (function () {
         this._groups[groupName] = [onResourceLoadComplete, onResourceLoadProgress, onResourceLoadCompleteTarget];
         RES.loadGroup(groupName);
     };
+    ResLoader.prototype.loadGroups = function (groupName, subGroups, onResourceLoadComplete, onResourceLoadProgress, onResourceLoadTarget) {
+        RES.createGroup(groupName, subGroups, true);
+        this.loadGroup(groupName, onResourceLoadComplete, onResourceLoadProgress, onResourceLoadTarget);
+    };
     ResLoader.prototype.onResourceLoadComplete = function (event) {
         var groupName = event.groupName;
         if (this._groups[groupName]) {

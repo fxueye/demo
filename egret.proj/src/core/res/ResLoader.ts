@@ -53,6 +53,10 @@ class ResLoader{
         this._groups[groupName] = [onResourceLoadComplete,onResourceLoadProgress,onResourceLoadCompleteTarget];
         RES.loadGroup(groupName);
     }
+    public loadGroups(groupName:string,subGroups:Array<any>,onResourceLoadComplete:Function, onResourceLoadProgress:Function, onResourceLoadTarget:any):void{
+        RES.createGroup(groupName,subGroups,true);
+        this.loadGroup(groupName,onResourceLoadComplete,onResourceLoadProgress,onResourceLoadTarget);
+    }
 
 
     private onResourceLoadComplete(event: RES.ResourceEvent):void{

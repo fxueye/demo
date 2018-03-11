@@ -2,7 +2,7 @@
 	"groups": [
 		{
 			"keys": "bg_mp3",
-			"name": "home"
+			"name": "repload_sound"
 		}
 	],
 	"resources": [

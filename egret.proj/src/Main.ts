@@ -58,10 +58,10 @@ class Main extends eui.UILayer {
     }
     private async runGame() {
         await this.loadResource()
-        App.Instance.init();
+        // App.Instance.init();
         this.initScene();
         this.initModule();
-        this.createGameScene();
+        App.Instance.SceneMgr.runScene(SceneConst.LOADING);
         // await platform.login();
         // const userInfo = await platform.getUserInfo();
         // console.log(userInfo);
@@ -97,13 +97,9 @@ class Main extends eui.UILayer {
         })
     }
 
-    protected createGameScene(): void {
-        App.Instance.EasyLoading.showLoading();
-        App.Instance.SceneMgr.runScene(SceneConst.LOADING);
-    }
     protected initScene(): void {
         App.Instance.SceneMgr.register(SceneConst.LOADING,new LoadingScene());
-        App.Instance.SceneMgr.register(SceneConst.UI,new UIScene());
+        App.Instance.SceneMgr.register(SceneConst.GAME,new GameScene());
     }
     protected initModule():void{
         App.Instance.ControlMgr.register(ControlConst.LOADING,new LoadingController());

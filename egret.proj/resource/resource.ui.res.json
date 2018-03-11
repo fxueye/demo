@@ -1,9 +1,250 @@
 {
 	"groups": [
 		{
-			"keys": "",
+			"keys": "btnEquip_png,btnReturn_png,btnStrengthen_png,mbtnAbout_png,mbtnGoods_png,mbtnHero_png,mbtnPlayer_png,mbtn_Bg_png,mbtn_BgFc_png,profileContent_png,profileTitle_png,skillBg_png,skillIcon01_png,skillIcon02_png,skillIcon03_png,skillIcon04_png,skillIcon05_png,skillIcon06_png,skillIcon07_png,skillItemFrame_png,commonBg_jpg,homeBg_jpg,bgListPage_jpg,btnOK_png,checkNo_png,checked_png,goods01_png,goods02_png,goods03_png,goods04_png,goods05_png,goods06_png,goods07_png,goodsTitle_png,hScrollBar01_png,hScrollBar02_png,heros01_png,heros02_png,heros03_png,heros04_png,heros05_png,heros06_png,heros07_png,herosTitle_png,listItemBkgd_png,about-bg_png,about_png,close_png",
 			"name": "preload_ui"
 		}
 	],
-	"resources": []
+	"resources": [
+		{
+			"url": "assets/profile/btnEquip.png",
+			"type": "image",
+			"name": "btnEquip_png"
+		},
+		{
+			"url": "assets/profile/btnReturn.png",
+			"type": "image",
+			"name": "btnReturn_png"
+		},
+		{
+			"url": "assets/profile/btnStrengthen.png",
+			"type": "image",
+			"name": "btnStrengthen_png"
+		},
+		{
+			"url": "assets/profile/mbtnAbout.png",
+			"type": "image",
+			"name": "mbtnAbout_png"
+		},
+		{
+			"url": "assets/profile/mbtnGoods.png",
+			"type": "image",
+			"name": "mbtnGoods_png"
+		},
+		{
+			"url": "assets/profile/mbtnHero.png",
+			"type": "image",
+			"name": "mbtnHero_png"
+		},
+		{
+			"url": "assets/profile/mbtnPlayer.png",
+			"type": "image",
+			"name": "mbtnPlayer_png"
+		},
+		{
+			"url": "assets/profile/mbtn_Bg.png",
+			"type": "image",
+			"name": "mbtn_Bg_png"
+		},
+		{
+			"url": "assets/profile/mbtn_BgFc.png",
+			"type": "image",
+			"name": "mbtn_BgFc_png"
+		},
+		{
+			"url": "assets/profile/profileContent.png",
+			"type": "image",
+			"name": "profileContent_png"
+		},
+		{
+			"url": "assets/profile/profileTitle.png",
+			"type": "image",
+			"name": "profileTitle_png"
+		},
+		{
+			"url": "assets/profile/skillBg.png",
+			"type": "image",
+			"name": "skillBg_png"
+		},
+		{
+			"url": "assets/profile/skillIcon01.png",
+			"type": "image",
+			"name": "skillIcon01_png"
+		},
+		{
+			"url": "assets/profile/skillIcon02.png",
+			"type": "image",
+			"name": "skillIcon02_png"
+		},
+		{
+			"url": "assets/profile/skillIcon03.png",
+			"type": "image",
+			"name": "skillIcon03_png"
+		},
+		{
+			"url": "assets/profile/skillIcon04.png",
+			"type": "image",
+			"name": "skillIcon04_png"
+		},
+		{
+			"url": "assets/profile/skillIcon05.png",
+			"type": "image",
+			"name": "skillIcon05_png"
+		},
+		{
+			"url": "assets/profile/skillIcon06.png",
+			"type": "image",
+			"name": "skillIcon06_png"
+		},
+		{
+			"url": "assets/profile/skillIcon07.png",
+			"type": "image",
+			"name": "skillIcon07_png"
+		},
+		{
+			"url": "assets/profile/skillItemFrame.png",
+			"type": "image",
+			"name": "skillItemFrame_png"
+		},
+		{
+			"url": "assets/home/commonBg.jpg",
+			"type": "image",
+			"name": "commonBg_jpg"
+		},
+		{
+			"url": "assets/home/homeBg.jpg",
+			"type": "image",
+			"name": "homeBg_jpg"
+		},
+		{
+			"url": "assets/heros_goods/bgListPage.jpg",
+			"type": "image",
+			"name": "bgListPage_jpg"
+		},
+		{
+			"url": "assets/heros_goods/btnOK.png",
+			"type": "image",
+			"name": "btnOK_png"
+		},
+		{
+			"url": "assets/heros_goods/checkNo.png",
+			"type": "image",
+			"name": "checkNo_png"
+		},
+		{
+			"url": "assets/heros_goods/checked.png",
+			"type": "image",
+			"name": "checked_png"
+		},
+		{
+			"url": "assets/heros_goods/goods01.png",
+			"type": "image",
+			"name": "goods01_png"
+		},
+		{
+			"url": "assets/heros_goods/goods02.png",
+			"type": "image",
+			"name": "goods02_png"
+		},
+		{
+			"url": "assets/heros_goods/goods03.png",
+			"type": "image",
+			"name": "goods03_png"
+		},
+		{
+			"url": "assets/heros_goods/goods04.png",
+			"type": "image",
+			"name": "goods04_png"
+		},
+		{
+			"url": "assets/heros_goods/goods05.png",
+			"type": "image",
+			"name": "goods05_png"
+		},
+		{
+			"url": "assets/heros_goods/goods06.png",
+			"type": "image",
+			"name": "goods06_png"
+		},
+		{
+			"url": "assets/heros_goods/goods07.png",
+			"type": "image",
+			"name": "goods07_png"
+		},
+		{
+			"url": "assets/heros_goods/goodsTitle.png",
+			"type": "image",
+			"name": "goodsTitle_png"
+		},
+		{
+			"url": "assets/heros_goods/hScrollBar01.png",
+			"type": "image",
+			"name": "hScrollBar01_png"
+		},
+		{
+			"url": "assets/heros_goods/hScrollBar02.png",
+			"type": "image",
+			"name": "hScrollBar02_png"
+		},
+		{
+			"url": "assets/heros_goods/heros01.png",
+			"type": "image",
+			"name": "heros01_png"
+		},
+		{
+			"url": "assets/heros_goods/heros02.png",
+			"type": "image",
+			"name": "heros02_png"
+		},
+		{
+			"url": "assets/heros_goods/heros03.png",
+			"type": "image",
+			"name": "heros03_png"
+		},
+		{
+			"url": "assets/heros_goods/heros04.png",
+			"type": "image",
+			"name": "heros04_png"
+		},
+		{
+			"url": "assets/heros_goods/heros05.png",
+			"type": "image",
+			"name": "heros05_png"
+		},
+		{
+			"url": "assets/heros_goods/heros06.png",
+			"type": "image",
+			"name": "heros06_png"
+		},
+		{
+			"url": "assets/heros_goods/heros07.png",
+			"type": "image",
+			"name": "heros07_png"
+		},
+		{
+			"url": "assets/heros_goods/herosTitle.png",
+			"type": "image",
+			"name": "herosTitle_png"
+		},
+		{
+			"url": "assets/heros_goods/listItemBkgd.png",
+			"type": "image",
+			"name": "listItemBkgd_png"
+		},
+		{
+			"url": "assets/about/about-bg.png",
+			"type": "image",
+			"name": "about-bg_png"
+		},
+		{
+			"url": "assets/about/about.png",
+			"type": "image",
+			"name": "about_png"
+		},
+		{
+			"url": "assets/about/close.png",
+			"type": "image",
+			"name": "close_png"
+		}
+	]
 }

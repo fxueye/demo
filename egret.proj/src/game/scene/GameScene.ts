@@ -1,4 +1,4 @@
-class UIScene extends BaseScene{
+class GameScene extends BaseScene{
     public constructor(){
         super();
     }

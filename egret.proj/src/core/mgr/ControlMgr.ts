@@ -19,6 +19,9 @@ class ControlMgr{
         this._modules[key] = null;
         delete this._modules[key];
     }
+    public getControl<T>(key:number):T{
+        return this._modules[key];
+    }
     public getModel(key:number):BaseModel{
         let control:BaseController = this._modules[key];
         if(control){
