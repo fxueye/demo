@@ -20,11 +20,11 @@ var GameScene = (function (_super) {
     }
     GameScene.prototype.onEnter = function () {
         _super.prototype.onEnter.call(this);
-        this.addLayer(App.Instance.LayerMgr.UIMain);
-        this.addLayer(App.Instance.LayerMgr.UIPopup);
-        this.addLayer(App.Instance.LayerMgr.UIMessage);
-        this.addLayer(App.Instance.LayerMgr.UITips);
         if (!this._inited) {
+            this.addLayer(App.Instance.LayerMgr.UIMain);
+            this.addLayer(App.Instance.LayerMgr.UIPopup);
+            this.addLayer(App.Instance.LayerMgr.UIMessage);
+            this.addLayer(App.Instance.LayerMgr.UITips);
             App.Instance.ViewMgr.open(ViewConst.LOADING);
             App.Instance.RES.loadGroups(this._groupName, this._subGroups, this.onResourceLoadComplete, this.onResourceLoadProgress, this);
             return;
@@ -37,8 +37,8 @@ var GameScene = (function (_super) {
     };
     GameScene.prototype.onResourceLoadComplete = function () {
         this._inited = true;
-        App.Instance.ViewMgr.close(ViewConst.LOADING);
-        this.onEnter();
+        // App.Instance.ViewMgr.close(ViewConst.LOADING);
+        // this.onEnter();
     };
     GameScene.prototype.onResourceLoadProgress = function (itemsLoaded, itemsTotal) {
         App.Instance.ControlMgr.getControl(ControlConst.LOADING).setProgress(itemsLoaded, itemsTotal);
