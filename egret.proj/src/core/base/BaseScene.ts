@@ -4,6 +4,7 @@ class BaseScene{
         this._layers = new Array<egret.DisplayObjectContainer>();
     }
     public onEnter(...param:any[]):void{
+
     }
     public onExit():void{
         this.removeAllLayer();

@@ -26,8 +26,8 @@
 		"bin-debug/core/mgr/TimerMgr.js",
 		"bin-debug/core/mgr/ViewMgr.js",
 		"bin-debug/core/module/loading/EasyLoading.js",
-		"bin-debug/core/module/toast/EasyToast.js",
-		"bin-debug/game/scene/LoadingScene.js",
+		"bin-debug/game/scene/GameScene.js",
+		"bin-debug/Main.js",
 		"bin-debug/core/mvc/BaseModel.js",
 		"bin-debug/core/mvc/BaseProxy.js",
 		"bin-debug/core/adapter/AssetAdapter.js",
@@ -36,13 +36,11 @@
 		"bin-debug/core/adapter/ThemeAdapter.js",
 		"bin-debug/core/sound/BgSound.js",
 		"bin-debug/core/sound/EffectSound.js",
-		"bin-debug/game/Game.js",
 		"bin-debug/game/consts/ControlConst.js",
 		"bin-debug/game/consts/SceneConst.js",
 		"bin-debug/game/consts/ViewConst.js",
 		"bin-debug/game/module/loading/LoadingController.js",
 		"bin-debug/game/module/loading/LoadingView.js",
-		"bin-debug/game/scene/GameScene.js",
-		"bin-debug/Main.js"
+		"bin-debug/core/module/toast/EasyToast.js"
 	]
 }

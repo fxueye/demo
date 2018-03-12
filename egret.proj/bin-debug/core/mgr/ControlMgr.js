@@ -8,25 +8,6 @@ var ControlMgr = (function () {
     ControlMgr.prototype.clear = function () {
         this._modules = {};
     };
-    ControlMgr.prototype.applyFunc = function (key, funcKey) {
-        var args = [];
-        for (var _i = 2; _i < arguments.length; _i++) {
-            args[_i - 2] = arguments[_i];
-        }
-        var control = this._modules[key];
-        if (control) {
-            var params = [];
-            params.push(funcKey);
-            for (var i = 0; i < args.length; i++) {
-                params.push(args[i]);
-            }
-            return control.applyFunc.apply(control, params);
-        }
-        else {
-            console.trace("control " + key + "not find!");
-            return null;
-        }
-    };
     ControlMgr.prototype.register = function (key, control) {
         if (this.isExists(key)) {
             return;

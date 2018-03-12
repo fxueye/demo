@@ -14,13 +14,11 @@ var LoadingController = (function (_super) {
         var _this = _super.call(this) || this;
         _this._loadingView = new LoadingView(_this, App.Instance.LayerMgr.UIMain);
         App.Instance.ViewMgr.register(ViewConst.LOADING, _this._loadingView);
-        _this.registerFunc(LoadingController.SetProgress, _this.setProgress, _this);
         return _this;
     }
     LoadingController.prototype.setProgress = function (current, total) {
         this._loadingView.setProgress(current, total);
     };
-    LoadingController.SetProgress = 10000;
     return LoadingController;
 }(BaseController));
 __reflect(LoadingController.prototype, "LoadingController");

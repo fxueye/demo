@@ -108,8 +108,7 @@ var Main = (function (_super) {
                         // App.Instance.init();
                         this.initScene();
                         this.initModule();
-                        App.Instance.SceneMgr.runScene(SceneConst.LOADING);
-                        new Game();
+                        App.Instance.SceneMgr.runScene(SceneConst.GAME);
                         return [2 /*return*/];
                 }
             });
@@ -159,7 +158,6 @@ var Main = (function (_super) {
         });
     };
     Main.prototype.initScene = function () {
-        App.Instance.SceneMgr.register(SceneConst.LOADING, new LoadingScene());
         App.Instance.SceneMgr.register(SceneConst.GAME, new GameScene());
     };
     Main.prototype.initModule = function () {
