@@ -62,6 +62,7 @@ class Main extends eui.UILayer {
         this.initScene();
         this.initModule();
         App.Instance.SceneMgr.runScene(SceneConst.LOADING);
+        new Game();
         // await platform.login();
         // const userInfo = await platform.getUserInfo();
         // console.log(userInfo);

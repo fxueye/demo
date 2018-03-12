@@ -8,11 +8,10 @@ var Game = (function () {
         App.Instance.RES.loadGroups(groupName, subGroups, this.onResourceLoadComplete, this.onResourceLoadProgress, this);
     }
     Game.prototype.onResourceLoadComplete = function () {
-        App.Instance.SceneMgr.runScene(SceneConst.GAME);
+        // App.Instance.SceneMgr.runScene(SceneConst.GAME);
     };
     Game.prototype.onResourceLoadProgress = function (itemsLoaded, itemsTotal) {
-        // let load:LoadingController = App.Instance.ControlMgr.getControl(ControlConst.LOADING);
-        // load.setProgress(itemsLoaded,itemsTotal);
+        App.Instance.ControlMgr.applyFunc(ControlConst.LOADING, LoadingController.SetProgress, itemsLoaded, itemsTotal);
     };
     return Game;
 }());

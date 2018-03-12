@@ -7,10 +7,11 @@ class BaseController{
     public registerFunc(key:any,callbackFunc:Function,callbackObj:any):void{
         this._messages[key] = [callbackFunc,callbackObj];
     }
-    public applyFunc(key:any,...param:any[]):any{
+    public applyFunc(key:any,...args:any[]):any{
         let listen:any = this._messages[key];
         if(listen){
-            return listen[0].apply(listen[1],param);
+            let func = listen[0];
+            return func.apply(listen[1],args);
         }else{
             console.trace("key:"+ key +" not find!");
             return null;

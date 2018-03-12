@@ -9,13 +9,14 @@ var BaseController = (function () {
         this._messages[key] = [callbackFunc, callbackObj];
     };
     BaseController.prototype.applyFunc = function (key) {
-        var param = [];
+        var args = [];
         for (var _i = 1; _i < arguments.length; _i++) {
-            param[_i - 1] = arguments[_i];
+            args[_i - 1] = arguments[_i];
         }
         var listen = this._messages[key];
         if (listen) {
-            return listen[0].apply(listen[1], param);
+            var func = listen[0];
+            return func.apply(listen[1], args);
         }
         else {
             console.trace("key:" + key + " not find!");

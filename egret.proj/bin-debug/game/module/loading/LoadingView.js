@@ -15,13 +15,10 @@ var LoadingView = (function (_super) {
         _this.skinName = "skin.LoadingSkin";
         return _this;
     }
-    LoadingView.prototype.onProgress = function (current, total) {
-        this.txtLoading.text = "资源加载中..." + current + "/" + total;
-    };
     LoadingView.prototype.setProgress = function (current, total) {
         this.txtLoading.text = "资源加载中..." + current + "/" + total;
     };
     return LoadingView;
 }(BaseUIView));
-__reflect(LoadingView.prototype, "LoadingView", ["RES.PromiseTaskReporter"]);
+__reflect(LoadingView.prototype, "LoadingView");
 //# sourceMappingURL=LoadingView.js.map

@@ -109,6 +109,7 @@ var Main = (function (_super) {
                         this.initScene();
                         this.initModule();
                         App.Instance.SceneMgr.runScene(SceneConst.LOADING);
+                        new Game();
                         return [2 /*return*/];
                 }
             });
